@@ -3,7 +3,6 @@
 Game::Game(std::string _gameName, uint32_t _width, uint32_t _height)
     : gameName(_gameName), width(_width), height(_height),
       window(sf::VideoMode(_width, _height), _gameName) {
-  std::cout << "Game started" << std::endl;
   appendNewCircle(125);
 };
 void Game::run() {
@@ -17,7 +16,6 @@ void Game::run() {
     window.clear();
     for(auto &x: shapes){
       window.draw(x);
-      std::cout<<"Drawing"<<std::endl;
     }
     window.display();
   }
