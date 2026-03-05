@@ -4,6 +4,7 @@ Game::Game(std::string _gameName, uint32_t _width, uint32_t _height)
     : gameName(_gameName), width(_width), height(_height),
       window(sf::VideoMode(_width, _height), _gameName) {
   std::cout << "Game started" << std::endl;
+  appendNewCircle(125);
 };
 void Game::run() {
   while (window.isOpen()) {
@@ -14,7 +15,13 @@ void Game::run() {
     }
 
     window.clear();
-    window.draw(shape);
+    for(auto &x: shapes){
+      window.draw(x);
+      std::cout<<"Drawing"<<std::endl;
+    }
     window.display();
   }
+}
+void Game::appendNewCircle(uint32_t radius){
+  objCreator.appendObject(shapes,radius);
 }
